@@ -32,25 +32,17 @@ class Model {
   init() {
     this.loader.load(this.file, (res) => {
 
-      /*------------------------------
-      Original Mesh
-      ------------------------------*/
+     // Original mesh
       this.mesh = res.scene.children[0]
 
-      /*------------------------------
-      Material Mesh
-      ------------------------------*/
+      // Material mesh
       this.material = new THREE.MeshBasicMaterial({ color: 'red', wireframe: true })
       this.mesh.material = this.material
 
-      /*------------------------------
-      Geomtery Mesh
-      ------------------------------*/
+      //Geometry mesh
       this.geometry = this.mesh.geometry
 
-      /*------------------------------
-      Particles Material
-      ------------------------------*/
+      // Particles Material
       // this.particlesMaterial = new THREE.PointsMaterial({
       //   color: "red",
       //   size: 0.02,
@@ -71,9 +63,7 @@ class Model {
       })
 
 
-      /*------------------------------
-      Particles Geometry
-      ------------------------------*/
+      //Particles geometry
       const sampler = new MeshSurfaceSampler(this.mesh).build()
       const numParticles = 20000
       this.particlesGeometry = new BufferGeometry()
@@ -100,14 +90,10 @@ class Model {
       this.particlesGeometry.setAttribute('aRandom', new THREE.BufferAttribute(particlesRandomness, 3))
 
 
-      /*------------------------------
-      Particles
-      ------------------------------*/
+      // Particles
       this.particles = new THREE.Points(this.particlesGeometry, this.particlesMaterial)
 
-      /*------------------------------
-      Place on load
-      ------------------------------*/
+      //Place on load
       if (this.placeOnLoad) {
         this.add()
       }

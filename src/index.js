@@ -3,9 +3,9 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import Model from './model'
 import gsap from 'gsap';
 
-/*------------------------------
-Renderer
-------------------------------*/
+/**
+ * Renderer
+ */
 const renderer = new THREE.WebGLRenderer({
   antialias: true,
   alpha: true
@@ -14,9 +14,9 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 
-/*------------------------------
-Scene & Camera
-------------------------------*/
+/**
+ * Scene & Camera
+ */
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   50,
@@ -39,25 +39,25 @@ const cube = new THREE.Mesh(geometry, material);
 // scene.add( cube );
 
 
-/*------------------------------
-OrbitControls
-------------------------------*/
+/**
+ * OrbitControls
+ */
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enabled = false;
 
 
-/*------------------------------
-Helpers
-------------------------------*/
+/**
+ * Helpers
+ */
 // const gridHelper = new THREE.GridHelper( 10, 10 );
 // scene.add( gridHelper );
 // const axesHelper = new THREE.AxesHelper( 5 );
 // scene.add( axesHelper );
 
 
-/*------------------------------
-Models
-------------------------------*/
+/**
+ * Models
+ */
 const skull = new Model({
   name: skull,
   file: "./models/skull.glb",
@@ -79,9 +79,9 @@ const alien = new Model({
 })
 
 
-/*------------------------------
-Controllers
-------------------------------*/
+/**
+ * Controllers
+ */
 const buttons = document.querySelectorAll('.button')
 
 buttons[0].addEventListener('click', () => {
@@ -95,14 +95,14 @@ buttons[1].addEventListener('click', () => {
 })
 
 
-/*------------------------------
-Clock
-------------------------------*/
+/**
+ * Clock
+ */
 const clock = new THREE.Clock()
 
-/*------------------------------
-Loop
-------------------------------*/
+/**
+ * Animate
+ */
 const animate = function () {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
@@ -117,9 +117,9 @@ const animate = function () {
 animate();
 
 
-/*------------------------------
-Resize
-------------------------------*/
+/**
+ * Resize
+ */
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
@@ -127,9 +127,9 @@ function onWindowResize() {
 }
 window.addEventListener('resize', onWindowResize, false);
 
-/*------------------------------
-MouseMove
-------------------------------*/
+/**
+ * Mouse event 
+ */
 function onMouseMove(e){
   const x = e.clientX
   const y = e.clientY
