@@ -1,0 +1,21 @@
+{
+  "name": "3d-particles",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel serve src/index.html --port 8080 --open",
+    "build": "rm -rf ./dist; parcel build src/index.html --public-url '.' --no-source-maps"
+  },
+  "devDependencies": {
+    "cssnano": "^5.1.15",
+    "glslify-bundle": "^5.1.1",
+    "glslify-deps": "^1.3.2",
+    "parcel-bundler": "^1.8.1",
+    "parcel-plugin-static-files-copy": "^1.2.4"
+  },
+  "dependencies": {
+    "gsap": "^3.6.0",
+    "three": "^0.125.2"
+  }
+}
